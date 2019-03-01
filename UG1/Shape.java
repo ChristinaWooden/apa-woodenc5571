@@ -27,13 +27,14 @@ public class Shape
 
    public void draw(Graphics window)
    {
-      window.setColor(color);
-      window.fillRect(xPos, yPos, width, height);
+      window.setColor(Color.RED);
 
-      //draw whatever you want
-      //    ^
-      //  [ :: ]
-      //    ()
+      window.fillRect(500, 500, 80, 80);
+
+      window.setColor(Color.BLUE);
+      window.fillRect(525, 525, 30, 30);
+      window.setColor(Color.GREEN);
+      window.fillOval(525, 525, 30, 30);
 
    }
 

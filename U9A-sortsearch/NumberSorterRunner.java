@@ -1,6 +1,6 @@
 //(c) A+ Computer Science
 //www.apluscompsci.com
-//Name -
+//Name - Chris Wooden
 
 import java.util.Arrays;
 import static java.lang.System.*; 
