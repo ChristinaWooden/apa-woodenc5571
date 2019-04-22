@@ -12,7 +12,7 @@ class InvisibleBall extends Ball
    //constructors
    public InvisibleBall()
    {
-   		super();
+   	super();
    }
 
    public InvisibleBall(int x, int y)
@@ -47,8 +47,8 @@ class InvisibleBall extends Ball
    public void moveAndDraw(Graphics window)
    {
 
-	   	super.setColor(changeColor());
-	   	super.moveAndDraw(window);
+	   super.setColor(changeColor());
+	   super.moveAndDraw(window);
 
    }
 }
