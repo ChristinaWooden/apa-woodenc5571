@@ -76,7 +76,7 @@ public class Paddle extends Block
   public void moveDownAndDraw(Graphics window)
   {
       //draw a white box at old paddle location
-      if (getY() <= 600){
+      if (getY()+100 <= 600){
       draw(window,Color.white);
 
       setY(getY()+speed);

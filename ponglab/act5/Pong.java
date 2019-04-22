@@ -13,9 +13,13 @@ import static java.lang.Character.*;
 import java.awt.image.BufferedImage;
 import java.awt.event.ActionListener;
 
+
+/////////TO TEST BlinkyBall, SpeedUpBall, and the regular ball, ball variable must be changed to
+/// an BlinkyBall,SpeedUpBall, etc respectively (sorry, I didn't know a better way to do this)
+
 public class Pong extends Canvas implements KeyListener, Runnable
 {
-  private Ball ball;
+  private InvisibleBall ball;
   private Paddle leftPaddle;
   private Paddle rightPaddle;
   private boolean[] keys;
@@ -30,15 +34,13 @@ public class Pong extends Canvas implements KeyListener, Runnable
   public Pong()
   {
     //set up all variables related to the game
-
-    ball = new Ball();
+    ball = new InvisibleBall();
     
     leftPaddle = new Paddle(30, 0, 10, 200, 6);
     
     rightPaddle = new Paddle(500, 0, 10, 200, 6);
 
     score = new Score();
-
 
     keys = new boolean[4];
 
@@ -92,6 +94,8 @@ public class Pong extends Canvas implements KeyListener, Runnable
 
       score.rightPoint();
 
+      graphToBack.drawString(score.toString(), 200, 450);
+
     }
 
     if ((ball.didCollideRight(right))){
@@ -100,6 +104,8 @@ public class Pong extends Canvas implements KeyListener, Runnable
       ball.setYSpeed(0);
 
       score.leftPoint();
+
+      graphToBack.drawString(score.toString(), 200, 450);
 
     }
 
@@ -110,7 +116,6 @@ public class Pong extends Canvas implements KeyListener, Runnable
     {
       ball.setYSpeed(-ball.getYSpeed());
     }
-
 
 
 

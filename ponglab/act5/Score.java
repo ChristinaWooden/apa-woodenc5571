@@ -10,10 +10,12 @@ public class Score{
 
 	public void leftPoint(){
 		leftScore++;
+		toString();
 	}
 
 	public void rightPoint(){
 		rightScore++;
+		toString();
 	}
 
 	public String toString(){

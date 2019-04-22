@@ -37,8 +37,8 @@ class InvisibleBall extends Ball
 
    public Color changeColor()
    {
-   	int m = (int)(Math.random());
-      if (m == 1){
+   	int m = (int)(Math.random()*10);
+      if (m >= 5){
          return new Color (255, 255, 255);
       }	
  		else return new Color(0, 0 ,255);
@@ -47,7 +47,7 @@ class InvisibleBall extends Ball
    public void moveAndDraw(Graphics window)
    {
 
-	   super.setColor(changeColor());
+	   setColor(changeColor());
 	   super.moveAndDraw(window);
 
    }

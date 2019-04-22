@@ -43,11 +43,17 @@ class SpeedUpBall extends Ball
   public void setXSpeed( int xSpd )
   {
   	xSpeed = (int)(Math.random()*xSpd);
+    if (super.getX() + xSpeed >= 550 || super.getX() + xSpeed <= 0){
+        xSpeed = (-xSpeed);
+    }
   }
 
   public void setYSpeed( int ySpd )
   {
   	ySpeed = (int)(Math.random()*ySpd);
+    if (super.getY() + ySpeed >= 600 || super.getY() + ySpeed <= 0){
+      ySpeed = (-ySpeed);
+    }
   }
 
 }
