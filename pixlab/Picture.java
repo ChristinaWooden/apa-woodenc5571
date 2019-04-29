@@ -529,6 +529,29 @@ public void edgeDetection2(int edgeDist){
       }
     }
   }
+
+  public void blur(int x, int y, int w, int h){
+    Pixel[][] pixels = this.getPixels2D();
+    int avg = 0;
+    Pixel leftPixel = null;
+    Pixel rightPixel = null;
+    Pixel topPixel = null;
+    Pixel bottomPixel = null;
+    
+    for (int row = x; row < x+h; row++)
+    {
+      for (int col = y; col < y+w; col++)
+      {
+        leftPixel = pixels[row][col];
+        rightPixel = pixels[row][col+1];
+        topPixel = pixels[row][col];
+        bottomPixel = pixels[row + 1][col];
+        pixels[row][col].setGreen((int)((leftPixel.getGreen() + rightPixel.getGreen() + topPixel.getGreen() + bottomPixel.getGreen())/4));
+        pixels[row][col].setBlue((int)(leftPixel.getBlue() + rightPixel.getBlue() + topPixel.getBlue() + bottomPixel.getBlue())/4);
+        pixels[row][col].setRed((int)((leftPixel.getRed() + rightPixel.getRed() + topPixel.getRed() + bottomPixel.getRed())/4));
+      }
+    }    
+  }
   
   
   /* Main method for testing - each class in Java can have a main 

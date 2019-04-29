@@ -148,6 +148,14 @@ public class PictureTester
   	w.fixUnderwater();
   	w.explore();
   }
+
+  public static void testBlur(int x, int y, int w, int h, int num){
+  	Picture rm = new Picture("redMotorcycle.jpg");
+  	for (int i = 0; i < num; i++){
+  		rm.blur(x, y, w, h);
+  	}
+  	rm.explore();
+  }
   
   /** Main method for testing.  Every class can have a main
     * method in Java */
@@ -156,26 +164,27 @@ public class PictureTester
     // uncomment a call here to run a test
     // and comment out the ones you don't want
     // to run
-    testZeroBlue();
-    testKeepOnlyBlue();
-    testKeepOnlyRed();
-    testKeepOnlyGreen();
-    testNegate();
-    testGrayscale();
-    testFixUnderwater();
-    testMirrorVertical();
-    testMirrorVerticalRightToLeft();
-    testMirrorHorizontal();
-    testMirrorHorizontalBotToTop();
-    testMirrorTemple();
-    testMirrorArms();
-    testMirrorGull();
-    testMirrorDiagonal();
-    testCollage();
-    testMyCollage();
-    testCopy();
-    testEdgeDetection();
-    testEdgeDetection2();
+    //testZeroBlue();
+    //testKeepOnlyBlue();
+    //testKeepOnlyRed();
+    //testKeepOnlyGreen();
+    //testNegate();
+    //testGrayscale();
+    //testFixUnderwater();
+    //testMirrorVertical();
+    //testMirrorVerticalRightToLeft();
+    //testMirrorHorizontal();
+    //testMirrorHorizontalBotToTop();
+    //testMirrorTemple();
+    //testMirrorArms();
+    //testMirrorGull();
+    //testMirrorDiagonal();
+    //testCollage();
+    //testMyCollage();
+    //testCopy();
+    //testEdgeDetection();
+    //testEdgeDetection2();
+    testBlur(180,160,25,25,10);
     //testChromakey();
     //testEncodeAndDecode();
     //testGetCountRedOverValue(250);
