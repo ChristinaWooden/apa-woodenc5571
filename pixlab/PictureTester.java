@@ -59,6 +59,27 @@ public class PictureTester
     temple.mirrorTemple();
     temple.explore();
   }
+
+  public static void testMirrorArms(){
+  	Picture s = new Picture("snowman.jpg");
+  	s.explore();
+  	s.mirrorArms();
+  	s.explore();
+  }
+
+  public static void testMirrorGull(){
+  	Picture g = new Picture("seagull.jpg");
+  	g.explore();
+  	g.mirrorGull();
+  	g.explore();
+  }
+
+  public static void testCopy(){
+  	Picture canvas = new Picture("640x480.jpg");
+  	Picture gull = new Picture("seagull.jpg");
+  	canvas.copy2(gull,162,203,235,325,239,400);
+  	canvas.explore();
+  }
   
   /** Method to test the collage method */
   public static void testCollage()
@@ -66,6 +87,12 @@ public class PictureTester
     Picture canvas = new Picture("640x480.jpg");
     canvas.createCollage();
     canvas.explore();
+  }
+
+  public static void testMyCollage(){
+  	Picture canvas = new Picture("640x480.jpg");
+  	canvas.myCollage();
+  	canvas.explore();
   }
   
   /** Method to test edgeDetection */
@@ -76,10 +103,28 @@ public class PictureTester
     swan.explore();
   }
 
+  public static void testEdgeDetection2(){
+  	Picture s = new Picture("swan.jpg");
+  	s.edgeDetection2(10);
+  	s.explore();
+  }
+
   public static void testKeepOnlyBlue(){
   	Picture mark = new Picture("blue-mark.jpg");
   	mark.keepOnlyBlue();
   	mark.explore();
+  }
+
+  public static void testKeepOnlyRed(){
+   	Picture mark = new Picture("blue-mark.jpg");
+  	mark.keepOnlyRed();
+  	mark.explore(); 	
+  }
+
+  public static void testKeepOnlyGreen(){
+  	Picture mark = new Picture("blue-mark.jpg");
+  	mark.keepOnlyGreen();
+  	mark.explore(); 
   }
 
   public static void testNegate(){
@@ -111,25 +156,26 @@ public class PictureTester
     // uncomment a call here to run a test
     // and comment out the ones you don't want
     // to run
-    //testZeroBlue();
-    //testKeepOnlyBlue();
-    //testKeepOnlyRed();
-    //testKeepOnlyGreen();
-    //testNegate();
-    //testGrayscale();
-    //testFixUnderwater();
-    //testMirrorVertical();
-    //testMirrorVerticalRightToLeft();
-    //testMirrorHorizontal();
-    //testMirrorHorizontalBotToTop();
-    //testMirrorTemple();
-    //testMirrorArms();
-    //testMirrorGull();
+    testZeroBlue();
+    testKeepOnlyBlue();
+    testKeepOnlyRed();
+    testKeepOnlyGreen();
+    testNegate();
+    testGrayscale();
+    testFixUnderwater();
+    testMirrorVertical();
+    testMirrorVerticalRightToLeft();
+    testMirrorHorizontal();
+    testMirrorHorizontalBotToTop();
+    testMirrorTemple();
+    testMirrorArms();
+    testMirrorGull();
     testMirrorDiagonal();
-    //testCollage();
-    //testCopy();
-    //testEdgeDetection();
-    //testEdgeDetection2();
+    testCollage();
+    testMyCollage();
+    testCopy();
+    testEdgeDetection();
+    testEdgeDetection2();
     //testChromakey();
     //testEncodeAndDecode();
     //testGetCountRedOverValue(250);
