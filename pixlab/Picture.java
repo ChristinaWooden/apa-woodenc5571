@@ -542,13 +542,15 @@ public void edgeDetection2(int edgeDist){
     {
       for (int col = y; col < y+w; col++)
       {
-        leftPixel = pixels[row][col];
+        if (x >= 0 && y >= 0 && x-1 >= 0 && y-1 >= 0 && x+1<=x+h && y+1<=y+h){
+        leftPixel = pixels[row][col-1];
         rightPixel = pixels[row][col+1];
-        topPixel = pixels[row][col];
+        topPixel = pixels[row-1][col];
         bottomPixel = pixels[row + 1][col];
         pixels[row][col].setGreen((int)((leftPixel.getGreen() + rightPixel.getGreen() + topPixel.getGreen() + bottomPixel.getGreen())/4));
         pixels[row][col].setBlue((int)(leftPixel.getBlue() + rightPixel.getBlue() + topPixel.getBlue() + bottomPixel.getBlue())/4);
         pixels[row][col].setRed((int)((leftPixel.getRed() + rightPixel.getRed() + topPixel.getRed() + bottomPixel.getRed())/4));
+      }
       }
     }    
   }
