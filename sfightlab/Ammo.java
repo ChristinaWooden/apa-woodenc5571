@@ -19,12 +19,12 @@ public class Ammo extends MovingThing
 
   public Ammo(int x, int y)
   {
-    super(x,y);
+    this(x,y,0);
   }
 
   public Ammo(int x, int y, int s)
   {
-    super(x,y);
+    super(x,y,10, 10);
     speed = s;
   }
 
@@ -40,15 +40,33 @@ public class Ammo extends MovingThing
 
   public void draw( Graphics window )
   {
-    window.setColor(Color.YELLOW);
-    window.fillRect(getX(), getY(), 15, 15);
+    window.fillRect(getX(),getY(),10,10);
   }
-        
         
   public void move( String direction )
   {
-    if (direction.equals("SPACE")){
-      setY(getY() + speed);
+    if(direction.equals("UP")) {
+      setY(getY() - getSpeed());
+    }
+    if(direction.equals("DOWN")) {
+      setY(getY() + getSpeed());
+    }
+    if(direction.equals("LEFT")) {
+      setX(getX() - getSpeed());
+    }
+    if(direction.equals("RIGHT")) {
+      setX(getX() + getSpeed());
+    }
+  }
+
+  public boolean collided(Alien al)
+  {
+    if (getX() + 10 >= al.getX() && getX() <= al.getX() + al.getWidth()
+            && getY() - 10 >= al.getY()
+            && getY() <= al.getY() + al.getHeight()) {
+      return true;
+    } else {
+      return false;
     }
   }
 

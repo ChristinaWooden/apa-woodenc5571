@@ -13,6 +13,8 @@ public class Alien extends MovingThing
 {
   private int speed;
   private Image image;
+  private int yCount = 4;
+  private String direction = "LEFT";
 
   public Alien()
   {
@@ -40,13 +42,15 @@ public class Alien extends MovingThing
     }
     catch(Exception e)
     {
-      //feel free to do something here
+      System.out.println("\n----------ALIEN ERROR BEGINS----------\n");
+      e.printStackTrace();
+      System.out.println("\n----------ALIEN ERROR ENDS----------\n");
     }
   }
 
   public void setSpeed(int s)
   {
-    speed =s;
+    speed = s;
   }
 
   public int getSpeed()
@@ -54,29 +58,46 @@ public class Alien extends MovingThing
     return speed;
   }
 
+  private void setDirection(String direction) {
+    this.direction = direction;
+  }
+
   public void move(String direction)
   {
-    if (direction.equals("UP")){
-      super.setY(super.getY() + speed);
+    if(direction.equals("DOWN")) {
+      setY(getY() + getSpeed());
     }
-    if (direction.equals("DOWN")){
-      super.setY(super.getY() - speed);
+    if(direction.equals("LEFT")) {
+      setX(getX() - getSpeed());
     }
-    if (direction.equals("RIGHT")){
-      super.setX(super.getX() + speed);
-    }
-    if (direction.equals("LEFT")){
-      super.setX(super.getX() - speed);
+    if(direction.equals("RIGHT")) {
+      setX(getX() + getSpeed());
     }
   }
 
-  public void draw( Graphics window )
+  public void move()
   {
+    if((getX() < 10 && "LEFT".equals(direction)) || (getX() > 750 && "RIGHT".equals(direction)))
+    {
+      move("DOWN");
+      if(getY() >= yCount*getHeight()) {
+        if("LEFT".equals(direction))
+          direction = "RIGHT";
+        else
+          direction = "LEFT";
+        yCount += 2;
+      }
+    } else
+      move(direction);
+  }
+
+  public void draw( Graphics window )
+  { 
     window.drawImage(image,getX(),getY(),getWidth(),getHeight(),null);
   }
 
   public String toString()
   {
-    return super.toString() + " " + getSpeed();
+    return super.toString() + getSpeed();
   }
 }
